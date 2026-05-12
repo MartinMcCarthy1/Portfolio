@@ -1,6 +1,8 @@
 <script>
+    import {base} from '$app/paths';
+
     const socials = [
-        {name: 'YouTube', limk: '#'},
+        {name: 'YouTube', link: '#'},
          { name: 'Twitter', link: '#' },
         { name: 'Instagram', link: '#' },
         { name: 'LinkedIn', link: '#' }
@@ -34,24 +36,44 @@
     <h2>Martin McCarthy</h2>
     <p>Designer & Digital Artist</p>
 
-    <button>Veiw My Work</button>
+    <a href="#work" class="work-button">View My Work</a>
  </section>
 
  <!--ABOUT-->
  <section id="about" class="section">
     <h3>About Me</h3>
 
-    <p>
-        I am an IDAD student at SETU carlow with a specific intrest in animation,
-        digital art and voice  acting.
-    </p>
+    <div class="about-container">
+
+        <img
+            src={base + '/headshot.jpeg'}
+            alt="Martin McCarthy headshot"
+            class="headshot"
+        />
+
+        <div class="about-text">
+            <p>
+                I am an IDAD student at SETU Carlow with a passion for animation,
+                digital art, game design, and voice acting.
+            </p>
+
+            <p>
+                Alongside my studies, I work as a barman in a hotel and perform
+                in productions with my local musical society. These experiences
+                have helped me develop strong communication, teamwork, and
+                creative skills.
+            </p>
+
+        </div>
+
+    </div>
  </section>
 
  <!--WORK-->
  <section id="work" class="section">
     <h3>My Work</h3>
 
-    <div class="Projects">
+    <div class="projects">
         <div class="card">
             <h4>Art</h4>
             <p>Physical & Digital art.</p>
@@ -92,8 +114,8 @@
     :global(body) {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: #f4f4f4;
-        color: #111;
+        background: #202020;
+        color: white;
         scroll-behavior: smooth;
     }
 
@@ -113,7 +135,7 @@
 
         padding: 1.5rem 3rem;
 
-        background: white;
+        background: #2d49b9;
         box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 
         z-index: 1000;
@@ -134,7 +156,7 @@
 
     nav a{
         text-decoration: none;
-        color: black;
+        color: white;
         transition: 0.3s;
     }
 
@@ -166,7 +188,7 @@
         margin-bottom: 2rem;
     }
 
-    button {
+    .work-button {
         padding: 1rem 2rem;
         border: none;
         border-radius: 10px;
@@ -178,7 +200,7 @@
         transition: 0.3s;
     }
 
-    button:hover {
+    .work-button:hover {
         transform: translateY(-2px);
     }
 
@@ -194,6 +216,48 @@
         margin-bottom: 2rem;
     }
 
+    .about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+
+    max-width: 1000px;
+    margin: auto;
+
+    flex-wrap: wrap;
+    }
+
+    .about-container p {
+        max-width: 500px;
+        line-height: 1.8;
+        font-size: 1.1rem;
+        text-align: left;
+    }
+
+    .about-text {
+    max-width: 500px;
+    text-align: left;
+    }
+
+    .about-text p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    }
+    
+    .headshot {
+    width: 250px;
+    height: 250px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 4px solid #2d49b9;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
     /*PROJECTS*/
 
     .projects {
@@ -205,7 +269,7 @@
     }
 
     .card {
-        background: white;
+        background: #747883;
         padding: 2rem;
         border-radius: 16px;
 
@@ -221,7 +285,7 @@
     /*CONTACT*/
 
     .contact {
-        background: #111;
+        background: #2d49b9;
         color: white;
 
         text-align: center;
