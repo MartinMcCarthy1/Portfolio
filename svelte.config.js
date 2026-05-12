@@ -2,18 +2,27 @@ import adapter from '@sveltejs/adapter-static';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	compilerOptions: {
-		// Force runes mode for the project, except for libraries. Can be removed in svelte 6.
-		runes: ({ filename }) => (filename.split(/[/\\]/).includes('node_modules') ? undefined : true)
-	},
-	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter({
-		fallback: '404.html'
-		})
-	}
+  kit: {
+    adapter: adapter({
+      // Output directory for built files
+      pages: 'build',
+      assets: 'build',
+
+      // Fallback page for client-side routing
+      fallback: '404.html',
+
+      // Don't precompress files (GitHub Pages handles this)
+      precompress: false,
+
+      // Fail build if routes aren't prerendered
+      strict: true
+    }),
+
+    // Important for GitHub Project Pages
+    paths: {
+      base: '/Portfolio'
+    }
+  }
 };
 
 export default config;
